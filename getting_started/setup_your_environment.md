@@ -1,41 +1,42 @@
-## Set up your environment
+## Настройка вашего окружения
 
-The Deno CLI contains a lot of the tools that are commonly needed for developing
-applications, including a full language server to help power your IDE of choice.
-[Installing](./installation.md) is all you need to do to make these
-[tools](./command_line_interface.md) available to you.
+Deno CLI содержит множество инструментов, которые обычно необходимы для
+разработки приложений, включая полнофункциональный языковой сервер, чтобы помочь
+вашей IDE. [Установка](./installation.md) это все, что вам нужно чтобы все эти
+[инструменты](./command_line_interface.md) стали вам доступны.
 
-Outside of using Deno with your favorite IDE, this section also documents
-[shell completions](#shell-completions) and
+Помимо использования Deno с вашей любимой IDE, в этом разделе также описаны
+[shell completions](#shell-completions) и
 [environment variables](#environment-variables).
 
-### Using an editor/IDE
+### Использование редактора/IDE
 
-There is broad support for Deno in editors/IDEs. The following sections provide
-information about how to use Deno with editors. Most editors integrate directly
-into Deno using the Language Server Protocol and the language server that is
-integrated into the Deno CLI.
+Deno широко поддерживается редакторами / IDE. В следующих разделах представлена
+​​информация о том, как использовать Deno с редакторами. Большинство редакторов
+интегрируются непосредственно в Deno с помощью протокола языкового сервера и
+языкового сервера, интегрированного в Deno CLI.
 
-If you are trying to write or support a community integration to the Deno
-language server, there is some
+Если вы пытаетесь написать или поддержать интеграцию сообщества с языковым
+сервером Deno, есть некоторые
 [documentation](https://github.com/denoland/deno/tree/main/cli/lsp#deno-language-server)
-located in the Deno CLI code repository, but also feel free to join the
-[Discord community](https://discord.gg/deno) in the `#dev-lsp` channel.
+расположенные в реппозитории кода Deno CLI, но также присоединяйтесь к
+[Discord community](https://discord.gg/deno) на канале `#dev-lsp`.
 
 #### Visual Studio Code
 
-There is an official extension for
-[Visual Studio Code](https://code.visualstudio.com/) called
+Есть официальное расширение для
+[Visual Studio Code](https://code.visualstudio.com/) называется
 [vscode_deno](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno).
-When installed, it will connect to the language server built into the Deno CLI.
+После установки оно будет подключаться к языковому серверу, встроенному в Deno
+CLI.
 
-Because most people work in mixed environments, the extension does not enable a
-workspace as _Deno enabled_ by default, and it requires that the `"deno.enable"`
-flag to be set. You can change the settings yourself, or you can choose
-`Deno: Initialize Workspace Configuration` from the command palette to enable
-your project.
+Поскольку большинство людей работают в смешанных средах, расширение не включает
+рабочее пространство, так как Deno enabled по умолчанию, и требует, чтобы был
+установлен флаг «Deno.enable». Вы можете изменить настройки самостоятельно или
+выбрать Deno: Initialize Workspace Configuration из палитры команд, чтобы
+активировать свой проект.
 
-More information can be found in the
+Больше информации можно найти здесь
 [Using Visual Studio Code](../vscode_deno.md) section of the manual.
 
 #### JetBrains' IntelliJ IDEA and WebStorm
@@ -121,11 +122,10 @@ An example configuration for Deno via eglot:
 
 #### Atom
 
-The [Atom editor](https://atom.io) supports integrating with the Deno language
-server via the [atom-ide-deno](https://atom.io/packages/atom-ide-deno) package.
-`atom-ide-deno` requires that the Deno CLI be installed and the
-[atom-ide-base](https://atom.io/packages/atom-ide-base) package to be installed
-as well.
+[редактор Atom](https://atom.io) поддерживает интеграцию с Deno language server
+через пакет [atom-ide-deno](https://atom.io/packages/atom-ide-deno).
+`atom-ide-deno` требует чтобы Deno CLI был установлен и пакет
+[atom-ide-base](https://atom.io/packages/atom-ide-base) также .
 
 #### Sublime Text
 
@@ -197,15 +197,15 @@ your `.sublime-project` configuration like the below:
 
 #### Nova
 
-The [Nova editor](https://nova.app) can integrate the Deno language server via
-the
+[Nova editor](https://nova.app) может интегрировать Deno language server через
 [Deno extension](https://extensions.panic.com/extensions/jaydenseric/jaydenseric.deno).
 
 #### GitHub Codespaces
 
-[GitHub Codespaces](https://github.com/features/codespaces) allows you develop
-fully online or remotely on your local machine without needing to configure or
-install Deno. It is currently in early access.
+[GitHub Codespaces](https://github.com/features/codespaces) позволяет полностью
+разрабатывать онлайн или удаленно на вашем локальном компьютере без
+необходимости настройки или установки Deno. В настоящее время он находится в
+раннем доступе.
 
 If a project is a Deno enabled project and contains the `.devcontainer`
 configuration as part of the repository, opening the project in GitHub
@@ -238,11 +238,11 @@ enable = true
 lint = true
 ```
 
-### Shell completions
+### Завершение Shell
 
-Built into the Deno CLI is support to generate shell completion information for
-the CLI itself. By using `deno completions <shell>`, the Deno CLI will output to
-stdout the completions. Current shells that are supported:
+В Deno CLI встроена поддержка генерации информации о завершении оболочки для
+самого CLI. Используя обозначение завершения <shell>, Deno CLI будет выводить в
+стандартный вывод завершения. Текущие поддерживаемые оболочки:
 
 - bash
 - elvish

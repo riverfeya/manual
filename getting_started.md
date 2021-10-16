@@ -1,11 +1,11 @@
 # Getting Started
 
-In this chapter we'll discuss:
+В этой главе мы обсудим:
 
-- [Installing Deno](./getting_started/installation.md)
-- [Setting up your environment](./getting_started/setup_your_environment.md)
-- [Running a `Hello World` script](./getting_started/first_steps.md)
-- [Writing our own script](./getting_started/first_steps.md)
-- [Command line interface](./getting_started/command_line_interface.md)
-- [Understanding permissions](./getting_started/permissions.md)
-- [Debugging your code](./getting_started/debugging_your_code.md)
+- [Установка Deno](./getting_started/installation.md)
+- [Настройка вашего окружения](./getting_started/setup_your_environment.md)
+- [Запуск скрипта `Hello World`](./getting_started/first_steps.md)
+- [Написание собственного скрипта](./getting_started/first_steps.md)
+- [Интерфейс командной строки](./getting_started/command_line_interface.md)
+- [Знакомство с разрешениями](./getting_started/permissions.md)
+- [Отладка вашего кода](./getting_started/debugging_your_code.md)

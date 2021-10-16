@@ -1,39 +1,40 @@
-## First steps
+## Первые шаги
 
-This page contains some examples to teach you about the fundamentals of Deno.
+Эта страница содержит несколько примеров, чтобы научить вас основам Deno.
 
-This document assumes that you have some prior knowledge of JavaScript,
-especially about `async`/`await`. If you have no prior knowledge of JavaScript,
-you might want to follow a guide
-[on the basics of JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
-before attempting to start with Deno.
+В этом документе предполагается, что вы уже знакомы с JavaScript, особенно с
+async / await. Если у вас нет предварительных знаний о JavaScript, вы можете
+следовать
+[руководству по основам JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
+прежде чем пытаться начать с Deno.
 
 ### Hello World
 
-Deno is a runtime for JavaScript/TypeScript which tries to be web compatible and
-use modern features wherever possible.
+Deno - это среда выполнения для JavaScript / TypeScript, которая пытается быть
+веб-совместимой и по возможности использует современные функции.
 
-Browser compatibility means a `Hello World` program in Deno is the same as the
-one you can run in the browser:
+Совместимость браузера означает, что программа Hello World в Deno такая же, как
+та, которую вы можете запустить в браузере:
 
 ```ts
 console.log("Welcome to Deno!");
 ```
 
-Try the program:
+Попробуйте программу:
 
 ```shell
 deno run https://deno.land/std@$STD_VERSION/examples/welcome.ts
 ```
 
-### Making an HTTP request
+### Создание HTTP запроса
 
-Many programs use HTTP requests to fetch data from a webserver. Let's write a
-small program that fetches a file and prints its contents out to the terminal.
+Многие программы используют HTTP-запросы для получения данных с веб-сервера.
+Напишем небольшую программу, которая извлекает файл и выводит его содержимое на
+терминал.
 
-Just like in the browser you can use the web standard
-[`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API to
-make HTTP calls:
+Как и в браузере, вы можете использовать стандартный веб-интерфейс
+[`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API для
+выполнения HTTP вызовов:
 
 ```ts
 const url = Deno.args[0];
@@ -43,47 +44,48 @@ const body = new Uint8Array(await res.arrayBuffer());
 await Deno.stdout.write(body);
 ```
 
-Let's walk through what this application does:
+Давайте рассмотрим, что делает это приложение:
 
-1. We get the first argument passed to the application, and store it in the
-   `url` constant.
-2. We make a request to the url specified, await the response, and store it in
-   the `res` constant.
-3. We parse the response body as an
+1. Мы получаем первый аргумент, переданный приложению, и сохраняем его в
+   константе url.
+2. Мы делаем запрос по указанному URL, ожидаем ответа и сохраняем его в
+   константе res.
+3. Мы парсим тело ответа как
    [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer),
-   await the response, and convert it into a
+   ожидаем ответа, и конвертируем его в
    [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
-   to store in the `body` constant.
-4. We write the contents of the `body` constant to `stdout`.
+   для сохранения в константе `body`.
+4. Мы записываем содержимое константы `body` в `stdout`.
 
-Try it out:
+Попробуйте:
 
 ```shell
 deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
 ```
 
-You will see this program returns an error regarding network access, so what did
-we do wrong? You might remember from the introduction that Deno is a runtime
-which is secure by default. This means you need to explicitly give programs the
-permission to do certain 'privileged' actions, such as access the network.
+Вы увидите, что эта программа возвращает ошибку, касающуюся доступа к сети, так
+что же мы сделали не так? Возможно, вы помните из введения, что Deno - это среда
+выполнения, которая по умолчанию безопасна. Это означает, что вам необходимо
+явно предоставить программам разрешение на выполнение определенных
+«привилегированных» действий, таких как доступ к сети.
 
-Try it out again with the correct permission flag:
+Попробуйте еще раз с правильным флагом разрешения:
 
 ```shell
 deno run --allow-net=example.com https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
 ```
 
-### Reading a file
+### Чтение файла
 
-Deno also provides APIs which do not come from the web. These are all contained
-in the `Deno` global. You can find documentation for these APIs on
+Deno также предоставляет APIs которые не пришли из web. Все они содержатся в
+`Deno` global. Вы можете найти документацию по этим APIs на
 [doc.deno.land](https://doc.deno.land/builtin/stable#Deno).
 
-Filesystem APIs for example do not have a web standard form, so Deno provides
-its own API.
+Например Filesystem APIs нет в стандартной форме web, так что Deno предоставляет
+свой сосбтвенный API.
 
-In this program each command-line argument is assumed to be a filename, the file
-is opened, and printed to stdout.
+В этой программе предполагается, что каждый аргумент командной строки является
+именем файла, файл открывается и выводится на стандартный вывод.
 
 ```ts
 import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
@@ -95,12 +97,12 @@ for (const filename of filenames) {
 }
 ```
 
-The `copy()` function here actually makes no more than the necessary
-kernel→userspace→kernel copies. That is, the same memory from which data is read
-from the file, is written to stdout. This illustrates a general design goal for
-I/O streams in Deno.
+Функция `copy()` здесь фактически делает не больше, чем kernel→userspace→kernel
+copies. То есть та же самая память, из которой считываются данные из файла,
+записывается в stdout. Это иллюстрирует общую цель проектирования потоков
+ввода-вывода в Deno.
 
-Try the program:
+Попробуйте программу:
 
 ```shell
 # macOS / Linux
@@ -112,8 +114,8 @@ deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Win
 
 ### TCP server
 
-This is an example of a server which accepts connections on port 8080, and
-returns to the client anything it sends.
+Это пример сервера, который принимает соединения через порт 8080 и возвращает
+клиенту все, что отправляет.
 
 ```ts
 import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
@@ -126,31 +128,33 @@ for await (const conn of listener) {
 }
 ```
 
-For security reasons, Deno does not allow programs to access the network without
-explicit permission. To allow accessing the network, use a command-line flag:
+По соображениям безопасности Deno не позволяет программам получать доступ к сети
+без явного разрешения. Чтобы разрешить доступ к сети, используйте флаг командной
+строки:
 
 ```shell
 deno run --allow-net https://deno.land/std@$STD_VERSION/examples/echo_server.ts
 ```
 
-To test it, try sending data to it with `netcat` (or `telnet` on Windows):
+Чтобы проверить это, попробуйте отправить ему данные с помощью netcat (или
+telnet в Windows):
 
-> Note for Windows users: netcat is not available on Windows. Instead you can
-> use the built in telnet client. The telnet client is disabled in Windows by
-> default. It is easy to enable however: just follow the instructions
+> Note for Windows users: netcat не доступен в Windows. Вместо него вы можете
+> использовать встроенный telnet client. Telnet client по умолчанию отключен в
+> Windows. Но включить его просто:
 > [on Microsoft TechNet](https://social.technet.microsoft.com/wiki/contents/articles/38433.windows-10-enabling-telnet-client.aspx)
 
 ```shell
-# Note for Windows users: replace the `nc` below with `telnet`
+# Note for Windows users: замените `nc` на `telnet`
 $ nc localhost 8080
 hello world
 hello world
 ```
 
-Like the `cat.ts` example, the `copy()` function here also does not make
-unnecessary memory copies. It receives a packet from the kernel and sends it
-back, without further complexity.
+Как и в примере с cat.ts, функция copy () здесь также не делает ненужных копий
+памяти. Она получает пакет от ядра и отправляет его обратно без дополнительных
+сложностей.
 
-### More examples
+### Еще примеры
 
-You can find more examples, like an HTTP file server, in the `Examples` chapter.
+Больше примеров, таких как HTTP file server, есть в главе `Examples`.

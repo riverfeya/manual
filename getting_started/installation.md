@@ -1,62 +1,62 @@
-## Installation
+## Установка
 
-Deno works on macOS, Linux, and Windows. Deno is a single binary executable. It
-has no external dependencies.
+Deno работает на macOS, Linux, и Windows. Deno это единственный двоичный
+запускаемый файл. Он не имеет внешних зависимостей.
 
-On macOS, both M1 (arm64) and Intel (x64) executables are provided. On Linux and
-Windows, only x64 is supported.
+На macOS, и на M1 (arm64) и на Intel (x64) выполнение доступно. На Linux и
+Windows, поддерживается только x64.
 
-### Download and install
+### Загрузка и установка
 
-[deno_install](https://github.com/denoland/deno_install) provides convenience
-scripts to download and install the binary.
+[deno_install](https://github.com/denoland/deno_install) предоставляет удобные
+скрипты для загрузки и установки двоичного файла.
 
-Using Shell (macOS and Linux):
+Используя shell (macOS и Linux):
 
 ```shell
 curl -fsSL https://deno.land/x/install/install.sh | sh
 ```
 
-Using PowerShell (Windows):
+Используя PowerShell (Windows):
 
 ```shell
 iwr https://deno.land/x/install/install.ps1 -useb | iex
 ```
 
-Using [Scoop](https://scoop.sh/) (Windows):
+Используя [Scoop](https://scoop.sh/) (Windows):
 
 ```shell
 scoop install deno
 ```
 
-Using [Chocolatey](https://chocolatey.org/packages/deno) (Windows):
+Используя [Chocolatey](https://chocolatey.org/packages/deno) (Windows):
 
 ```shell
 choco install deno
 ```
 
-Using [Homebrew](https://formulae.brew.sh/formula/deno) (macOS):
+Используя [Homebrew](https://formulae.brew.sh/formula/deno) (macOS):
 
 ```shell
 brew install deno
 ```
 
-Using [Nix](https://nixos.org/download.html) (macOS and Linux):
+Используя [Nix](https://nixos.org/download.html) (macOS and Linux):
 
 ```shell
 nix-shell -p deno
 ```
 
-Build and install from source using [Cargo](https://crates.io/crates/deno):
+Сборка и установка из исходников [Cargo](https://crates.io/crates/deno):
 
 ```shell
 cargo install deno --locked
 ```
 
-Deno binaries can also be installed manually, by downloading a zip file at
+Deno в виде двоичного файла можно установить и вручную, загрузив zip файл из
 [github.com/denoland/deno/releases](https://github.com/denoland/deno/releases).
-These packages contain just a single executable file. You will have to set the
-executable bit on macOS and Linux.
+Этот пакет содержит только исполняемый файл. Вам нужно будет установить
+исполняемый бит в macOS и Linux.
 
 ### Docker
 
@@ -71,25 +71,25 @@ to the console the installation was successful.
 Use `deno help` to see help text documenting Deno's flags and usage. Get a
 detailed guide on the CLI [here](./command_line_interface.md).
 
-### Updating
+### Обновление
 
-To update a previously installed version of Deno, you can run:
+Чтобы обновить ранее установленную версию Deno, вы можете запустить:
 
 ```shell
 deno upgrade
 ```
 
-This will fetch the latest release from
+Это приведет к загрузке последней версии из
 [github.com/denoland/deno/releases](https://github.com/denoland/deno/releases),
-unzip it, and replace your current executable with it.
+разархивирует его и заменит им текущий исполняемый файл.
 
-You can also use this utility to install a specific version of Deno:
+Вы также можете использовать эту утилиту для установки определенной версии Deno:
 
 ```shell
 deno upgrade --version 1.0.1
 ```
 
-### Building from source
+### Сборка из исходников
 
-Information about how to build from source can be found in the
-[`Contributing`](../contributing/building_from_source.md) chapter.
+Информацию о том, как собрать из исходников, можно найти в
+[`Contributing`](../contributing/building_from_source.md) .
