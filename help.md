@@ -1,6 +1,6 @@
 # Where To Get Help
 
-Stuck? Lost? Get Help from the Community.
+Застряли? Потерялись? Попросите помощи у сообщества.
 
 ### [Stack Overflow](https://stackoverflow.com/questions/tagged/deno)
 
