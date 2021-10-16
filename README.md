@@ -1,6 +1,6 @@
 # Deno manual
 
-This repository is the official documentation for Deno.
+Это оффициальный реппозиторий документации Deno.
 
 Manual is available at: https://deno.land/manual
 
